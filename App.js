@@ -1,5 +1,5 @@
-import Home from "./src/pages/Home";
+import AppRoutes from "./src/routes/route";
 
 export default function App() {
-  return <Home />;
+  return <AppRoutes />;
 }

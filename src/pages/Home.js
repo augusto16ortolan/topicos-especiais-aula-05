@@ -14,13 +14,14 @@ import Card from "../components/Card";
 import CardImage from "../components/CardImage";
 import { movies } from "../data/movies";
 
-export default function Home() {
+export default function Home({ navigation }) {
   const [isModalVisible, setModalVisible] = useState(false);
   const [movieSelected, setMovieSelected] = useState(null);
 
   function handleOnClickCard(movie) {
-    setMovieSelected(movie);
-    setModalVisible(true);
+    // setMovieSelected(movie);
+    // setModalVisible(true);
+    navigation.navigate("DetailMovie", { filme: movie });
   }
 
   function handleOnClickCloseModal() {
@@ -31,8 +32,6 @@ export default function Home() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-      <Text style={styles.title}>Meus filmes</Text>
-
       {/* Função map: itera sobre a lista e transforma cada dado em um novo valor */}
       {/* <ScrollView>
         {movies.map((movie) => {
@@ -108,14 +107,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    paddingTop: 50,
+    paddingTop: 10,
     paddingHorizontal: 16,
     gap: 15,
-  },
-  title: {
-    textAlign: "center",
-    fontSize: 30,
-    fontWeight: "700",
   },
   separator: {
     height: 16,
